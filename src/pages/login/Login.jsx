@@ -2,13 +2,22 @@ import './Login.css'
 import logo from '../../assets/images/Group 14.png'
 import show from '../../assets/icons/show.png'
 import hide from '../../assets/icons/hide.png'
-import { useContext } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import AuthContext from '../../context/AuthContext'
+import { useNavigate } from 'react-router-dom'
 
 
 const Login = () => {
-    const {showPassword, setShowPassword } = useContext(AuthContext)
+    const [username, setUsername] = useState("")
+    const [password, setPassword] = useState("")
+    const {showPassword, setShowPassword, loginUser, token } = useContext(AuthContext)
+    const navigate = useNavigate()
 
+    useEffect(() => {
+        if (token) {
+          navigate('/');
+        }
+      }, []);
     return (
         <section className='loginbody'>
     <div className="flex min-h-full flex-1 flex-col justify-center px-5 py-12 lg:px-8 w-full md:w-3/5 lg:w-2/5 mx-auto bg-white rounded-md">
@@ -23,8 +32,19 @@ const Login = () => {
 
     <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm ">
         
-    <form className="space-y-5">
+    <form onSubmit={(e)=>{
+        e.preventDefault()
+        const formData = {
+            username,
+            password
+        }
+        console.log(formData);
+        loginUser(formData)
+    }} className="space-y-5">
             <input
+            onChange={(e)=>{
+                setUsername(e.target.value)
+            }}
             id="username"
             name="username"
             type="text"
@@ -33,10 +53,10 @@ const Login = () => {
             className="px-4 block w-full rounded-md border-0 py-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-green-200 sm:text-sm sm:leading-6 outline-none"
             placeholder='username'
             />
-      <div className='relative'>
-           <input
+    <div className='relative'>
+        <input
             onChange={(e)=>{
-                // setPassword(e.target.value)
+                setPassword(e.target.value)
             }}
             id="password"
             name="password"
@@ -51,13 +71,10 @@ const Login = () => {
             }} className='absolute top-4 right-4' src={hide} alt="" /> :  <img onClick={()=>{
                 setShowPassword(!showPassword)
             }} className='absolute top-4 right-4' src={show} alt="" /> }
-           
+        
             
-           </div>
-
+        </div>
             <a className='block text-left' href="">Forgot password?</a>
-       
-
         <button
             type="submit"
             className="flex w-full justify-center rounded-md bg-red-700 px-3 py-3 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 "
