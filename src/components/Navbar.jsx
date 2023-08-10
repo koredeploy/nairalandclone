@@ -11,10 +11,10 @@ const Navbar = () => {
         <Link className='text-white' to='/createpage' >Post Story</Link>
         {token !==null ? <Link onClick={()=>{
             logoutUser()
-        }} className='text-white'>logout</Link> : <div className='px-3 text-white' ><Link className='' to='/login'>Sign In</Link>
+        }} className='text-white'>logout</Link> : <div className='px-3 text-white flex gap-3' ><Link className='' to='/login'>Sign In</Link>
         <Link className='text-white' to='/signup px-3'>Get Started</Link></div>}
-      </div>ge
-je    </div>
+      </div>
+    </div>
   )
 }
 
