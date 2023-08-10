@@ -2,6 +2,7 @@ import './Signup.css'
 import logo from '../../assets/images/Group 14.png'
 import show from '../../assets/icons/show.png'
 import hide from '../../assets/icons/hide.png'
+import { Link } from 'react-router-dom'
 import {  useContext, useState } from 'react'
 import AuthContext from '../../context/AuthContext'
 
@@ -20,7 +21,10 @@ return (
     <h2 className=" my-2 text-center md:text-xl font-bold leading-9 tracking-tight text-gray-900 py-4">
         Create your <span className='text-green-900'>&#8358;airaland</span> account
     </h2>
-    <p className='text-sm'> Already have an account? Log in.</p>
+    <p className='text-sm'> Already have an account?
+    <Link to="/login">Log in.</Link>
+    
+    </p>
     
     </div>
 

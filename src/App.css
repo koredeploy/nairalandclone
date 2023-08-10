@@ -9,6 +9,15 @@ body{
   font-family: 'Poppins', sans-serif;
   background-color: #E8ECE0 ;
   text-align: center;
-  padding: 3rem 1.5rem;
- 
+  
+}
+
+.b-container{
+  width: 100%;
+  max-width: 1440px;
+  margin: auto;
+}
+
+.page-alignment{
+  padding: 0 100px ;
 }

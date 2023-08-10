@@ -4,7 +4,7 @@ import show from '../../assets/icons/show.png'
 import hide from '../../assets/icons/hide.png'
 import { useContext, useEffect, useState } from 'react'
 import AuthContext from '../../context/AuthContext'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 
 const Login = () => {
@@ -12,12 +12,13 @@ const Login = () => {
     const [password, setPassword] = useState("")
     const {showPassword, setShowPassword, loginUser, token } = useContext(AuthContext)
     const navigate = useNavigate()
+    
 
     useEffect(() => {
         if (token) {
-          navigate('/');
+        navigate('/');
         }
-      }, []);
+    }, []);
     return (
         <section className='loginbody'>
     <div className="flex min-h-full flex-1 flex-col justify-center px-5 py-12 lg:px-8 w-full md:w-3/5 lg:w-2/5 mx-auto bg-white rounded-md">
@@ -26,7 +27,9 @@ const Login = () => {
         <h2 className=" my-2 text-center md:text-xl font-bold leading-9 tracking-tight text-gray-900 py-4">
         Create your <span className='text-green-900'>&#8358;airaland</span> account
     </h2>
-    <p className='sm:text-sm'> Don&apos;t have an account? Sign Up.</p>
+    <p className='sm:text-sm'> Don&apos;t have an account? 
+    <Link to="/signup">Sign Up</Link>
+    .</p>
     
     </div>
 
