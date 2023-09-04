@@ -6,15 +6,15 @@ import useFetch from "../hooks/useFetch";
 import redbar from "../assets/images/pseudo.png";
 import Loading from "../components/utils/loading";
 import CreatedAt from "../components/CreatedAt";
+import { Link } from "react-router-dom";
 
 
 const Section1 = () => {
 
     const { token } = useContext(AuthContext);
 
-    const { data, loading, error } = useFetch(
-      "https://nairalandapi5.onrender.com/api/posts/",
-      token
+    const { data,  error, loading } = useFetch(
+      "https://nairalandapi5.onrender.com/api/posts/", token
     );
     // const [img, setImg] = useState()
   
@@ -30,23 +30,24 @@ const Section1 = () => {
       <h1 className="text-left text-3xl font-light">Headline</h1>
     </div>
   {/* section1 */}
-    <div className="grid sm:grid-cols-1 md:grid-cols-3 gap-7 mb-10 ">
+    <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 mb-10 ">
       {data &&
-        data.slice(0, 6).map((datum) => (
+        data.slice(3, 9).map((datum) => (
           <div key={datum.id} className="  relative sm:mb-3 " >
             
-            <img src={`https://res.cloudinary.com/drui6fs9f/${datum.image}` } className="w-full object-cover" alt="" />
-            {/* <img src={image1} alt="" className="w-full object-cover" /> */}
+          <div className=" md:h-52 md:max-w-sm min-w-full bg-white w-full rounded-tl-md rounded-tr-md" >
+          <img src={`https://res.cloudinary.com/drui6fs9f/${datum.image}` }  className=" h-52 w-full object-cover rounded-md" alt="" />
+          </div>
+          <Link to={`/storydetail/${datum.id}`}>
             <div className="bg-white px-5 pt-2 pb-5 rounded-br-md rounded-bl-md relative h-auto md:h-56">
             <div className="flex items-center gap-1 absolute -top-9  left-5">
               <span>
-                {" "}
                 <img src={redbar} alt="" />
               </span>
               <h2 className="text-white">{datum.tags}</h2>
             </div>
-              <h2 className="text-left text-sm md:text-xl font-bold w-full xl:w-5/6  my-3">
-                {datum.story}
+              <h2 className="text-left text-sm md:text-lg font-bold w-full xl:w-5/6  my-3">
+                {datum.title}
               </h2>
               <div
                 style={{ height: 1, "backgroundColor": "#00000033" }}
@@ -62,10 +63,11 @@ const Section1 = () => {
                 <p className="text-left self-center">{datum.created_at}</p>
               </div>
             </div>
+            </Link>
+
           </div>
         ))}
-        {<Loading loading={loading}/>}
-        {error && <p>{error}</p>}
+        {error && <p className="text-left">{error}</p>}
         
     </div>
     

@@ -1,0 +1,53 @@
+body{
+    overflow-x: hidden;
+}
+.navbar{
+    position: relative;
+}
+
+
+.nav-links{
+    position: absolute;
+    transform: scaleY(0);
+    top: 70px;
+    background-color: white;
+    right: 0px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    z-index: 2;
+    gap: 1rem;
+    width: 100%;
+    text-align: left;
+    transform-origin: top;
+    transition: 0.3 ease-in-out;
+}
+
+.nav-links.active{
+    transform: scaleY(1);
+    align-items: start;
+    text-align: left;
+    padding: 1.5rem ;
+    left: 0px;
+}
+
+@media (min-width: 700px) {
+    .menu{
+        visibility: hidden;
+    }
+    
+    .nav-links{
+        position: relative;
+        flex-direction: row;
+        top: unset;
+        left: unset;
+        justify-content: end;
+        flex: 2;
+        background-color: unset;
+        color: white !important;
+        transform: scale(1);
+        /* width: 50%; */
+    }
+  
+
+}

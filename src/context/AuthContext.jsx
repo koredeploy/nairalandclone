@@ -1,5 +1,5 @@
 import { createContext, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 // import { signup } from "../api";
 import axios from "axios";
 import toast from "react-hot-toast";
@@ -8,9 +8,10 @@ const AuthContext = createContext();
 export default AuthContext;
 export const AuthProvider = ({ children }) => {
   const navigate = useNavigate();
+  const { id } = useParams()
+  const [searchValue, setSearchValue] = useState("")
 
   const [showPassword, setShowPassword] = useState(false);
-  const [user, setUser] = useState("")
   const [token, setToken] = useState(
     () => JSON.parse(localStorage.getItem("token")) || null
   );
@@ -45,17 +46,20 @@ export const AuthProvider = ({ children }) => {
         Authorization: `Token ${token}`,
         },
     })
-    console.log(token);
-    if(res.status == 200){
-      setToken(null)
-      setUser(null)
-      localStorage.removeItem('token')
-      navigate('/')
-      toast.success('Logout')
+    if(token){
+      console.log(token, "pass");
+      // if(res.status == 204){
+      // setToken(null)
+      // setUser(null)
+      // localStorage.removeItem('token')
+      //   navigate('/')
+      //   toast.success('Logout')
+      // }
     }
-   } catch (error) {
+   
+  } catch (error) {
     console.log(error);
-   }
+  }
   }
 
   const getCurrentUser = async ()=>{
@@ -68,6 +72,15 @@ export const AuthProvider = ({ children }) => {
     const data = await res.json()
     setUser(data)
   }
+
+  // const getStory = async ()=>{
+  //   const res = await axios.get(`https://nairalandapi5.onrender.com/api/singlepost/${id}`, {
+  //     headers: {
+  //       "Content-Type" : "application/json",
+  //       Authorization: `Token ${token}`
+  //     }
+  //   })
+  // }
 
   const createStory = async (data) => {
     try {
@@ -83,8 +96,9 @@ export const AuthProvider = ({ children }) => {
         }
       );
       console.log(res);
-      if (res.status === 200) {
+      if (res.status === 201) {
         toast.success("Story Created successfully");
+        navigate("/")
       }
     } catch (error) {
       console.log(error);
@@ -130,6 +144,9 @@ export const AuthProvider = ({ children }) => {
     getCurrentUser,
     token,
     createStory,
+    setSearchValue,
+    searchValue,
+  
 
   };
 

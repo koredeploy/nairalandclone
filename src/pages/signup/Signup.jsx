@@ -5,6 +5,7 @@ import hide from '../../assets/icons/hide.png'
 import { Link } from 'react-router-dom'
 import {  useContext, useState } from 'react'
 import AuthContext from '../../context/AuthContext'
+import Rootlayout from '../../layout/Rootlayout'
 
 const Signup = () => {
     const [email, setEmail] = useState("")
@@ -14,8 +15,8 @@ const Signup = () => {
     const {registerUser, setShowPassword, showPassword} = useContext(AuthContext)
 return (
 
-<div className='signup-body  min-h-full'>
-<div className="flex min-h-full flex-1 flex-col justify-center px-5 py-12 lg:px-8 w-full md:w-3/5 lg:w-2/5 mt-5 mx-auto bg-white rounded-md">
+<div className='signup-body my-10 py-10'>
+<div className="flex min-h-full flex-1 flex-col justify-center px-5  lg:px-8 lg:w-2/5 mx-auto sm:bg-transparent md:py-20 lg:bg-white rounded-md">
     <div className="sm:mx-auto sm:w-full sm:max-w-sm">
         <img src={logo} className=" w-4/5 mx-auto" />
     <h2 className=" my-2 text-center md:text-xl font-bold leading-9 tracking-tight text-gray-900 py-4">

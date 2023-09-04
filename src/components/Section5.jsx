@@ -6,6 +6,7 @@ import Loading from "../components/utils/loading";
 import CreatedAt from "../components/CreatedAt";
 import stepper from '../assets/images/Group 43.png'
 import sect2img from '../assets/images/image 135.png'
+import { Link } from "react-router-dom";
 
 
 const Section5 = () => {
@@ -25,31 +26,36 @@ const Section5 = () => {
       <h1 className="text-left text-3xl font-light">latest News</h1>
     </div>
     <div className="grid grid-cols-1 sm:gap-4 md:gap-16 mb-10 items-center relative">
-    {data && data.slice(2, 4).map((datum)=>(
-        <div key={datum.id} className="  relative sm:mb-3 flex justify-between mb-5 xl:mb-0" >
-        {/* <img src={datum.image} alt="" /> */}
-        <div className="w-full" style={{}}> <img src={sect2img} alt="" className=" object-cover" /></div>
-        <div className=" w-full px-5 ">
+    {data && data.slice(0, 2).map((datum)=>(
+        <div key={datum.id} className="  relative sm:mb-3 flex justify-between gap-4 mb-5 xl:mb-0" >
+    
+        <div className="w-full md:max-w-xl " style={{}}>
+           <img src={`https://res.cloudinary.com/drui6fs9f/${datum.image}`} alt="" className=" object-cover min-h-full  sm:h-56 md:h-72  sm:w-52 min-w-full rounded-md " />
+           </div>
+        
+        <div className=" w-full px-3  sm:text-sm text-sm">
 
-          <div className="flex item-center align-middle justify-between w-5/6">
-              <p className="text-left self-center text-sm py-1 md:py-2">{datum.tags}</p>
+          <div className="flex item-center align-middle w-full justify-between gap-3">
+              <p className="text-left md:self-center sm:text-xs text-sm py-1 md:py-2">{datum.tags}</p>
             <CreatedAt
-              classname={"text-left text-sm py-1 md:py-2"}
+              classname={"text-left sm:text-xs text-xs py-1 md:py-2 w-full"}
               timeStamp={datum.created_at}
             />
 
           </div>
-          <h2 className="text-left text-blue-800 text-sm md:text-lg font-medium md:font-bold w-full">
-            {datum.story}
+          <Link to={`StoryDetail/${datum.id}`}>
+          <h2 className="text-left text-blue-800 text-sm md:text-base font-medium md:font-bold w-full my-2">
+            {datum.title}
           </h2>
+          </Link>
+        
           
         </div>
+        
       </div>
     ))}
     {!loading &&  <span className="absolute left-2/4 hidden xl:visible -top-5 h-full"><img src={stepper} alt="" /></span>  }
-         
-      {<Loading loading={loading}/>}
-     {error && <p>{error}</p>}
+    {error && <p className='text-left'>{error}</p>}
     </div>
     </div>
     </div>

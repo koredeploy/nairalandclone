@@ -6,17 +6,17 @@ import image1 from "../assets/images/image 113.png";
 import greendot from "../assets/icons/Rectangle 2.png";
 import redbar from "../assets/images/pseudo.png";
 import Loading from "../components/utils/loading";
-import CreatedAt from "../components/CreatedAt";
+
 
 import 'swiper/css';
 import { Autoplay, Navigation, Pagination } from 'swiper/modules';
+import { Link } from 'react-router-dom';
 
 const HomepageSwiper = () => {
     const { token } = useContext(AuthContext);
 
     const { data, loading, error } = useFetch(
-      "https://nairalandapi5.onrender.com/api/posts/",
-      token
+      "https://nairalandapi5.onrender.com/api/trending"
     );
   return (
     <div className='' style={{backgroundColor: "#7CA778"}}>
@@ -53,6 +53,7 @@ const HomepageSwiper = () => {
     }}
     pagination={{
         clickable: true,
+        
     }}
     navigation={{
         nextEl: ".swiper-button-next",
@@ -64,25 +65,26 @@ const HomepageSwiper = () => {
     >
         { data && data.map((datum)=>(
             <SwiperSlide key={datum.id}>
-                     <img src={`https://res.cloudinary.com/drui6fs9f/${datum.image}` } className="w-full object-cover" alt="" />
-            <div className="bg-white px-5 pt-2 pb-5 rounded-br-md rounded-bl-md relative h-auto md:h-40">
+              <Link to={`storydetail/${datum.id}`}>                    
+              <div className='md:h-64 bg-white w-full rounded-tl-md rounded-tr-md'>
+                     <img src={`https://res.cloudinary.com/drui6fs9f/${datum.image}` } className="w-full rounded-tl-md rounded-tr-md object-cover h-64" alt="" />
+                     </div>
+            <div className="bg-white px-5 pt-2 pb-3 rounded-br-md rounded-bl-md mb-11 relative h-36 md:h-36">
             <div className="flex items-center gap-1 absolute -top-9  left-5">
               <span>
                 <img src={redbar} alt="" />
               </span>
               <h2 className="text-white">{datum.tags}</h2>
             </div>
-              <h2 className="text-left text-sm md:text-xl font-bold w-full xl:w-5/6  my-3">
+              <h2 className="text-left text-sm md:text-lg font-bold w-full xl:w-5/6  my-3">
                 {datum.story}
               </h2>
-             
-          
-             
             </div>
+            </Link>
+ 
             </SwiperSlide>
         ))}
-         {<Loading loading={loading}/>}
-        {error && <p>{error}</p>}
+        {error && <p className='text-left'>{error}</p>}
       
      
       </Swiper>

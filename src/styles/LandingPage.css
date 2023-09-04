@@ -1,10 +1,14 @@
 *{
     box-sizing: border-box;
+    
 }
 .b-container{
     width: 100%;
     max-width: 1440px;
     margin: auto;
+}
+p{
+    color: black;
 }
 
 

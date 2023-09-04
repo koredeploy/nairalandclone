@@ -20,8 +20,8 @@ const Login = () => {
         }
     }, []);
     return (
-        <section className='loginbody'>
-    <div className="flex min-h-full flex-1 flex-col justify-center px-5 py-12 lg:px-8 w-full md:w-3/5 lg:w-2/5 mx-auto bg-white rounded-md">
+        <section className='loginbody  my-10 py-10'>
+    <div className="flex min-h-full flex-1 flex-col justify-center px-5  lg:px-8 lg:w-2/5 mx-auto sm:bg-transparent md:py-20 lg:bg-white rounded-md">
     <div className="sm:mx-auto sm:w-full sm:max-w-sm">
         <img src={logo} className=" w-4/5 mx-auto" />
         <h2 className=" my-2 text-center md:text-xl font-bold leading-9 tracking-tight text-gray-900 py-4">
