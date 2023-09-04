@@ -1,13 +1,15 @@
 import { useContext, useEffect, useState } from "react";
 import axios from "axios";
-import AuthContext from "../context/AuthContext";
 
 const useFetch = (url, token) => {
   const [data, setData] = useState([]);
+  const [singleNews, setSingleNews] = useState(null)
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+
   
+
   useEffect(() => {
     const getData = async () => {
       if (token) {
@@ -16,18 +18,19 @@ const useFetch = (url, token) => {
             "Content-Type": "application/json",
             Authorization: `Token ${token}`,
           },
-        }
-        );
-        // setData(res.data)
-       setData(data.results)
-        setLoading(false)
+        });
+        setData(data.results);
+        setSingleNews(data)
+        setLoading(false);
+      } else {
+        const res = await axios.get(url);
+        const receivedData = res.data;
+        // console.log(receivedData);
+        setData(receivedData);
+        setSingleNews(res.data)
         
-        // setapiData(res)
-        // setapiData(receiveData);
-        // setLoading(false);
-        // console.log(receiveData);
         
-      } 
+      }
     };
 
     setTimeout(() => {
@@ -38,9 +41,7 @@ const useFetch = (url, token) => {
       });
     }, 1000);
   }, [url, token]);
-  return { data, loading, error };
+  return { data, loading, error, singleNews };
 };
 
 export default useFetch;
-
-

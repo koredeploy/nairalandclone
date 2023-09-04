@@ -8,27 +8,30 @@ import Section3 from "../components/Section3";
 import HomepageSwiper from "../components/homepageSwiper";
 import Section4a from "../components/Section4a";
 import Section5 from "../components/Section5";
-import Section6 from "../components/Section6";
-import Navbar from "../components/Navbar";
+import { useContext } from "react";
+import AuthContext from "../context/AuthContext";
+import useFetch from "../hooks/useFetch";
 const LandingPage = () => {
+  const { token } = useContext(AuthContext)
+  
+  const { data, loading, error } = useFetch(
+    "https://nairalandapi5.onrender.com/api/posts/",
+    token
+  );
+
   // const data2=   Object.entries(data.results)
-  // console.log(data[0]);
+console.log(token);
 
   return (
     <Rootlayout>
-      <div>
-        <Navbar/>
         <Slider />
-        <div style={{ backgroundColor: "#E0E0E0" }}>
           <Section1 />
           <Section2 />
           <Section3 />
           <HomepageSwiper />
-          <Section4a/>
+          <Section4a data={data} error={error}/>
           <Section5/>
-          <Section6/>
-        </div>
-      </div>
+      
     </Rootlayout>
   );
 };
