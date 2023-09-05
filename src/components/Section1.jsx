@@ -31,6 +31,7 @@ const Section1 = () => {
     </div>
   {/* section1 */}
     <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 mb-10 ">
+      {loading && <Loading/>}
       {data &&
         data.slice(3, 9).map((datum) => (
           <div key={datum.id} className="  relative sm:mb-3 " >

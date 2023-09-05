@@ -8,7 +8,6 @@ const AuthContext = createContext();
 export default AuthContext;
 export const AuthProvider = ({ children }) => {
   const navigate = useNavigate();
-  const { id } = useParams()
   const [searchValue, setSearchValue] = useState("")
 
   const [showPassword, setShowPassword] = useState(false);
@@ -31,10 +30,10 @@ export const AuthProvider = ({ children }) => {
         setToken(res.data.auth_token);
         console.log(res.data.auth_token);
         localStorage.setItem("token", JSON.stringify(res.data.auth_token));
-        navigate("/");
+        navigate("/home");
       }
     } catch (error) {
-      console.log(error);
+      toast.error(error)
     }
   };
 
@@ -98,10 +97,10 @@ export const AuthProvider = ({ children }) => {
       console.log(res);
       if (res.status === 201) {
         toast.success("Story Created successfully");
-        navigate("/")
+        navigate("/home")
       }
     } catch (error) {
-      console.log(error);
+      toast.error(error)
     }
   };
 
@@ -116,7 +115,7 @@ export const AuthProvider = ({ children }) => {
       if (res.status === 201) {
         console.log("registered successful");
         toast.success("registered successful");
-        navigate("/login");
+        navigate("/home");
         loginUser({
           username: incoming.username,
           password: incoming.password,

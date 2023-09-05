@@ -18,9 +18,9 @@ function App() {
       <AuthProvider>
           <Toaster/>
         <Routes>
-          < Route path='/' element={<LandingPage />} />
+          < Route path='home' element={<LandingPage />} />
           < Route path='signup' element={<Signup />} />
-          < Route path='login' element={<Login />} />
+          < Route path='/' element={<Login />} />
           < Route path= 'createpage' element={<CreatePage/>}/>
           < Route path= 'trending' element={<TrendingPage/>}/>
           < Route path= 'allpost' element={<Allpost/>}/>

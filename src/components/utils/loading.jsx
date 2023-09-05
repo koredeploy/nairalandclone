@@ -1,5 +1,5 @@
 import  { useState } from 'react'
-import { RiseLoader } from 'react-spinners'
+import { BounceLoader, RiseLoader, ScaleLoader } from 'react-spinners'
 
 const Loading = ({loading}) => {
   // const [loading, setLoading] = useState(true)
@@ -11,8 +11,8 @@ const Loading = ({loading}) => {
     borderColor: "red",
   };
   return (
-    <div className='py-5'>
-      <RiseLoader
+    <div className='py-10 text-left '>
+      <ScaleLoader
         color={color}
         loading={loading}
         cssOverride={override}

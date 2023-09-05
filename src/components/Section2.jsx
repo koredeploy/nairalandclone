@@ -32,12 +32,13 @@ const Section2 = () => {
       <h1 className="text-left text-3xl font-light">latest News</h1>
     </div>
     <div className="grid grid-cols-1 md:grid-cols-2 sm:gap-4 md:gap-2 lg:gap-16 mb-10 items-center relative">
+    {loading && <Loading  />}
     {data && data.slice(0, 6).map((datum)=>(
         <div key={datum.id} className="  relative sm:mb-3 flex justify-between mb-5 xl:mb-0" >
         {/* <img src={datum.image} alt="" /> */}
         
-        <div className="w-full lg:h-44 md:max-w-xs " style={{}}>
-           <img src={`https://res.cloudinary.com/drui6fs9f/${datum.image}` } className=" sm:w-52 md:h-40 h-full  object-cover" alt="" /></div>
+        <div className="w-full sm:h-40 lg:h-44 md:max-w-xs " style={{}}>
+           <img src={`https://res.cloudinary.com/drui6fs9f/${datum.image}` } className=" sm:w-52  md:h-40  object-cover" alt="" /></div>
         
         <div className=" w-full px-5 ">
 

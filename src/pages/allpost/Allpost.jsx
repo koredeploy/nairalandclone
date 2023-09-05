@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom'
 import Pagination from "../../components/Pagination";
 import AuthContext from "../../context/AuthContext";
 import useFetch from "../../hooks/useFetch";
+import Loading from "../../components/utils/loading";
 const Allpost = () => {
 
   const [currentPage, setCurrentPage] = useState(2)
@@ -33,6 +34,8 @@ const Allpost = () => {
   </div>
 
     <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 mb-10 ">
+      {loading && <Loading/>}
+      {error && <p className="text-left">{error}</p> }
       {currentPost && currentPost.map((post)=>(
           <div key={post.id} className="  relative sm:mb-3 " >
           

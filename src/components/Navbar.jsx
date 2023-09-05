@@ -70,10 +70,10 @@ console.log(searchValue);
       <Link className='text-white' to='/'> <span className='text-white md:text-3xl text-xl '>&#8358;airaland</span>.</Link>
       
       <div className={`${isactive} `}>
-      <Link to='/'> <p className='sm:text-black md:text-white'>Home</p></Link>
+      <Link to='/home'> <p className='sm:text-black md:text-white'>Home</p></Link>
       <Link to='/createpage'> <p className='sm:text-black  md:text-white'>Write</p></Link>
       <Link to='/trending'> <p className='sm:text-black  md:text-white'>Trending</p></Link>
-      <Link to='/login'> <p className='sm:text-black md:text-white'>Signin</p></Link>
+      <Link to='/'> <p className='sm:text-black md:text-white'>Signin</p></Link>
 
 
       </div>

@@ -15,7 +15,7 @@ const Section6 = () => {
             <div className="grid sm:grid-cols-1 md:grid-cols-3 gap-4 md:gap-7">
               <div className="flex flex-col text-white text-left py-5 md:mt-4">
                 <h1 className="text-xl sm:text-base md:text-base text-semibold">Quick Menu</h1>
-            <Link  className="py-1"  to="/">
+            <Link  className="py-1"  to="/home">
             Home
             </Link>
            

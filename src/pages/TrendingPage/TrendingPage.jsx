@@ -6,6 +6,7 @@ import redbar from '../../assets/images/pseudo.png'
 import greendot from '../../assets/icons/Rectangle 2.png' 
 import { Link } from 'react-router-dom'
 import Pagination from '../../components/Pagination'
+import Loading from '../../components/utils/loading'
 
 const TrendingPage = () => {
 
@@ -32,6 +33,7 @@ const TrendingPage = () => {
     </div>
 
       <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 mb-10 ">
+        {loading && <Loading/>}
         {currentPost && currentPost.map((post)=>(
             <div key={post.id} className="  relative sm:mb-3 " >
             

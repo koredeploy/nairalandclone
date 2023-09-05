@@ -5,7 +5,6 @@ import useFetch from "../hooks/useFetch";
 import Loading from "../components/utils/loading";
 import CreatedAt from "../components/CreatedAt";
 import stepper from '../assets/images/Group 43.png'
-import sect2img from '../assets/images/image 135.png'
 import { Link } from "react-router-dom";
 
 
@@ -26,6 +25,7 @@ const Section5 = () => {
       <h1 className="text-left text-3xl font-light">latest News</h1>
     </div>
     <div className="grid grid-cols-1 sm:gap-4 md:gap-16 mb-10 items-center relative">
+      {loading && <Loading/>}
     {data && data.slice(0, 2).map((datum)=>(
         <div key={datum.id} className="  relative sm:mb-3 flex justify-between gap-4 mb-5 xl:mb-0" >
     

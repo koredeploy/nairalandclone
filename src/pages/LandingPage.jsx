@@ -29,7 +29,7 @@ console.log(token);
           <Section2 />
           <Section3 />
           <HomepageSwiper />
-          <Section4a data={data} error={error}/>
+          <Section4a data={data} error={error} loading={loading}/>
           <Section5/>
       
     </Rootlayout>

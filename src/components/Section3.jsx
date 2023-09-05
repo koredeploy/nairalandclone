@@ -28,10 +28,11 @@ const Section3 = () => {
     </div>
 
     <div className="grid grid-cols-1 md:grid-cols-2 justify-between gap-6">
+      {loading && <Loading/>}
     {data &&
         data.slice(8, 9).map((datum) => (
           <div key={datum.id} className="  relative sm:mb-3  " >
-            {/* <img src={datum.image} alt="" /> */}
+
             <img src={`https://res.cloudinary.com/drui6fs9f/${datum.image}`} alt="" className="w-full object-cover md:max-w-xl md:h-80 rounded-md " />
             <div className=" pt-2 pb-5 relative h-auto ">
             <div className="flex items-center gap-1 absolute -top-9  left-5">

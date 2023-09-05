@@ -1,19 +1,11 @@
 // import { Children } from "react"
-import { useContext } from "react";
 import greendot from "../assets/icons/Rectangle 2.png";
-import AuthContext from "../context/AuthContext";
-// import useFetch from "../hooks/useFetch";
-// import image1 from "../assets/images/image 113.png";
-// import Loading from "../components/utils/loading";
 import CreatedAt from "../components/CreatedAt";
 import { Link } from "react-router-dom";
+import Loading from "./utils/loading";
 
-const Section4a = ({ data, error }) => {
-  // const [img, setImg] = useState()
-
-  // const data2=   Object.entries(data.results)
-  // console.log(data[0]);
-  data && console.log(data);
+const Section4a = ({ data, error, loading }) => {
+  
   return (
     <div className="bg-white">
       <div className="b-container px-5 sm:px-5 md:px-24 pt-3">
@@ -23,8 +15,9 @@ const Section4a = ({ data, error }) => {
           </span>
           <h1 className="text-left text-3xl font-light">Sport News</h1>
         </div>
-        {/* section1 */}
+      
         <div className="grid sm:grid-cols-1 md:grid-cols-3 gap-7 pb-10 ">
+          {loading && <Loading/>}
           {data &&
             data.map(
               (datum) =>

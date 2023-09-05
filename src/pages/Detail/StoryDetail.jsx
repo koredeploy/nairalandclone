@@ -29,6 +29,7 @@ const StoryDetail = () => {
         const data = res.data
         console.log(data.story);
         setSinglePost(data)
+        setLoading(false);
 
       }
       setTimeout(()=>{
@@ -52,6 +53,7 @@ const StoryDetail = () => {
       
      <div className='flex flex-col md:flex-row w-full justify-between gap-10 text-left'>
         <div className='w-full my-5'>
+        {loading && <Loading/>}
        {singlePost && 
        <div className=''>
         <div className='flex gap-2'>

@@ -28,6 +28,7 @@ const useFetch = (url, token) => {
         // console.log(receivedData);
         setData(receivedData);
         setSingleNews(res.data)
+        setLoading(false)
         
         
       }

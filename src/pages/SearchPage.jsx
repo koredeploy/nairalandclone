@@ -5,6 +5,7 @@ import AuthContext from "../context/AuthContext";
 import { Link } from "react-router-dom";
 import redbar from "../assets/images/pseudo.png";
 import CreatedAt from "../components/CreatedAt";
+import Loading from "../components/utils/loading";
 
 const SearchPage = () => {
   const { token, searchValue } = useContext(AuthContext);
@@ -22,6 +23,8 @@ const SearchPage = () => {
         {!data && <div className="py-10">
             <h1>No result Found </h1>
         </div> }
+        {loading && <Loading/>}
+        {error && <h2>Something went wrong..</h2>}
         {data && data
           .filter((val) => {
             if (searchValue == "") {
