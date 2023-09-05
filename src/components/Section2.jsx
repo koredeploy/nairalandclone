@@ -43,7 +43,7 @@ const Section2 = () => {
         <div className=" w-full px-5 ">
 
           <div className="grid grid-cols-1 gap-3 item-center align-middle justify-between ">
-              <p className="text-left md:self-center text-sm py-1 md:py-2">{datum.tags}</p>
+              <p className="text-left md:self-center text-gray-600 font-semibold text-lg py-1 md:py-2">{datum.tags}</p>
           </div>
           <Link to={`/storydetail/${datum.id}`}>
           <h2 className="text-left text-blue-800 text-sm lg:text-lg font-medium lg:font-bold w-full">

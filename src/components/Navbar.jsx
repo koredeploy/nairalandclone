@@ -11,7 +11,7 @@ import SearchBar from './SearchBar';
 
 const Navbar = () => {
     const navigate = useNavigate();
-  const {token, searchValue, setSearchValue } = useContext(AuthContext)
+  const {token, searchValue, setSearchValue, signOut } = useContext(AuthContext)
 
 console.log(searchValue);
   // console.log(token);
@@ -20,7 +20,9 @@ console.log(searchValue);
   const [display, setDisplay] = useState(false)
   const isactive = display ? "nav-links active" : 'nav-links'
 
-  
+
+
+
 
 //   const logoutUser = async () => {
 //     if(token){
@@ -71,9 +73,13 @@ console.log(searchValue);
       
       <div className={`${isactive} `}>
       <Link to='/home'> <p className='sm:text-black md:text-white'>Home</p></Link>
-      <Link to='/createpage'> <p className='sm:text-black  md:text-white'>Write</p></Link>
-      <Link to='/trending'> <p className='sm:text-black  md:text-white'>Trending</p></Link>
-      <Link to='/'> <p className='sm:text-black md:text-white'>Signin</p></Link>
+      <Link to='/createpage'> <p className='sm:text-green-800  md:text-white'>Write</p></Link>
+      <Link to='/trending'> <p className='sm:text-green-800  md:text-white'>Trending</p></Link>
+      <Link to='/allpost'> <p className='sm:text-green-800  md:text-white'>Recent</p></Link>
+      {!token  && <Link to='/'> <p className='sm:text-black md:text-white'>Signin</p></Link> }
+      {token && <Link onClick={()=>{
+        signOut()
+      }} to='/'> <button className='sm:text-black md:text-white bg-red rounded-md'>Logout</button></Link>}
 
 
       </div>

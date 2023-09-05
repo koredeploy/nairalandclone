@@ -6,10 +6,10 @@ const Section6 = () => {
     <div className='bg-green-950 '>
        <div className="grid grid-cols-1 md:grid-cols-2 px-5 sm:px-5 md:px-24 py-14 md:gap-10 gap-7">
       <div>
-        <Link to="/"><h1 className="text-white text-left text-xl text-bold"><span className="p">&#8358;</span>airaland</h1></Link>
+        <Link to="/home"><h1 className="text-white text-left text-xl text-bold"><span className="p">&#8358;</span>airaland</h1></Link>
             <p className="text-left text-gray-100 py-4">Nairaland is a Nigerian English-language internet forum. Founded by Nigerian entrepreneur Seun Osewa on March 8, 2005, it is targeted primarily at Nigerian domestic residents and is the 6th most visited website in Nigeria.</p>
        
-        <button className="bg-green-800 hover:bg-green-700 flex text-white font-bold py-2 px-4 rounded">Post Story</button>
+        <Link to="/createpage" className="bg-green-800 hover:bg-green-700 flex text-white font-bold py-2 px-4 w-32 rounded"> Write Story</Link>
       </div>
         <div>
             <div className="grid sm:grid-cols-1 md:grid-cols-3 gap-4 md:gap-7">

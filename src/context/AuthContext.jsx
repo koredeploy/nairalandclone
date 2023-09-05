@@ -11,9 +11,9 @@ export const AuthProvider = ({ children }) => {
   const [searchValue, setSearchValue] = useState("")
 
   const [showPassword, setShowPassword] = useState(false);
-  const [token, setToken] = useState(
-    () => JSON.parse(localStorage.getItem("token")) || null
-  );
+
+    const [token, setToken] = useState(()=>
+  JSON.parse(localStorage.getItem('token')) || null);
   // console.log(token);
 
 
@@ -37,29 +37,29 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-  const logoutUser = async ()=>{
-   try {
-    const res = await axios.post("https://nairalandapi5.onrender.com/api/auth/token/logout/", {
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Token ${token}`,
-        },
-    })
-    if(token){
-      console.log(token, "pass");
-      // if(res.status == 204){
-      // setToken(null)
-      // setUser(null)
-      // localStorage.removeItem('token')
-      //   navigate('/')
-      //   toast.success('Logout')
-      // }
-    }
+  // const logoutUser = async ()=>{
+  //  try {
+  //   const res = await axios.post("https://nairalandapi5.onrender.com/api/auth/token/logout/", {
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //       Authorization: `Token ${token}`,
+  //       },
+  //   })
+  //   if(token){
+  //     console.log(token, "pass");
+  //     // if(res.status == 204){
+  //     // setToken(null)
+  //     // setUser(null)
+  //     // localStorage.removeItem('token')
+  //     //   navigate('/')
+  //     //   toast.success('Logout')
+  //     // }
+  //   }
    
-  } catch (error) {
-    console.log(error);
-  }
-  }
+  // } catch (error) {
+  //   console.log(error);
+  // }
+  // }
 
   const getCurrentUser = async ()=>{
     const res = await axios.get("https://nairalandapi5.onrender.com/api/auth/users/me",{
@@ -80,6 +80,24 @@ export const AuthProvider = ({ children }) => {
   //     }
   //   })
   // }
+ 
+
+  const signOut = async ()=>{
+    const res = await fetch('https://nairalandapi5.onrender.com/api/auth/token/logout', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Token ${token}`,
+    },
+  })
+  setToken(null)
+  localStorage.removeItem('token')
+  toast.success("Thanks for your time")
+  navigate('/')
+
+  }
+
+ 
 
   const createStory = async (data) => {
     try {
@@ -134,17 +152,19 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
+  
+
   const AuthData = {
     registerUser,
     showPassword,
     setShowPassword,
     loginUser,
-    logoutUser,
     getCurrentUser,
     token,
     createStory,
     setSearchValue,
     searchValue,
+    signOut,
   
 
   };

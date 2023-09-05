@@ -35,19 +35,20 @@ const Section5 = () => {
         
         <div className=" w-full px-3  sm:text-sm text-sm">
 
-          <div className="flex item-center align-middle w-full justify-between gap-3">
-              <p className="text-left md:self-center sm:text-xs text-sm py-1 md:py-2">{datum.tags}</p>
-            <CreatedAt
-              classname={"text-left sm:text-xs text-xs py-1 md:py-2 w-full"}
-              timeStamp={datum.created_at}
-            />
+          <div className=" item-center align-middle w-full justify-between gap-3">
+              <p className="text-left text-gray-600 font-semibold text-lg py-1 md:py-2">{datum.tags}</p>
+           
 
           </div>
           <Link to={`StoryDetail/${datum.id}`}>
-          <h2 className="text-left text-blue-800 text-sm md:text-base font-medium md:font-bold w-full my-2">
+          <h2 className="text-left text-blue-800 text-base font-medium md:font-bold w-full my-2">
             {datum.title}
           </h2>
           </Link>
+          <CreatedAt
+              classname={"text-left sm:text-xs text-xs py-1 md:py-2 w-full"}
+              timeStamp={datum.created_at}
+            />
         
           
         </div>
