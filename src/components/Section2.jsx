@@ -42,17 +42,17 @@ const Section2 = () => {
         
         <div className=" w-full px-5 ">
 
-          <div className="grid grid-cols-2 gap-3 item-center align-middle justify-between ">
+          <div className="grid grid-cols-1 gap-3 item-center align-middle justify-between ">
               <p className="text-left md:self-center text-sm py-1 md:py-2">{datum.tags}</p>
-            <CreatedAt
-              classname={"text-left text-xs py-1 md:py-2 w-full"}
-              timeStamp={datum.created_at}
-            />
           </div>
           <Link to={`/storydetail/${datum.id}`}>
           <h2 className="text-left text-blue-800 text-sm lg:text-lg font-medium lg:font-bold w-full">
             {datum.title.slice(0, 35)}
           </h2></Link>
+            <CreatedAt
+              classname={"text-left text-xs py-1 md:py-2 w-full"}
+              timeStamp={datum.created_at}
+            />
 
           
         </div>

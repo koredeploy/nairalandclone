@@ -70,8 +70,6 @@ const Allpost = () => {
           </Link>
           </div>
       ))}
-      {error && <p className="text-left">{error}</p>}
-      
   </div>
   <Pagination postPerPage={postPerPage} totalPosts={currentPost.length} setCurrentPage={setCurrentPage}/>
     </div>
