@@ -14,11 +14,11 @@ const Login = () => {
     const navigate = useNavigate()
     
 
-    useEffect(() => {
-        if (token) {
-        navigate('/home');
-        }
-    }, []);
+    // useEffect(() => {
+    //     if (token) {
+    //     navigate('/');
+    //     }
+    // }, []);
     return (
         <section className='loginbody  my-10 py-10'>
     <div className="flex min-h-full flex-1 flex-col justify-center px-5  lg:px-8 lg:w-2/5 mx-auto sm:bg-transparent md:py-20 lg:bg-white rounded-md">
@@ -28,8 +28,8 @@ const Login = () => {
         Create your <span className='text-green-900'>&#8358;airaland</span> account
     </h2>
     <p className='sm:text-sm'> Don&apos;t have an account? 
-    <Link to="/signup">Sign Up</Link>
-    .</p>
+    <Link to="/signup" className='text-blue-600 font-bold px-1'>Sign Up</Link>
+    </p>
     
     </div>
 

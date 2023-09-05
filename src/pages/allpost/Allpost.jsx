@@ -30,7 +30,7 @@ const Allpost = () => {
     <span>
       <img className="object-cover" src={greendot} alt="" />
     </span>
-    <h1 className="text-left text-3xl font-light">All News</h1>
+    <h1 className="text-left text-3xl font-light">Recent</h1>
   </div>
 
     <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 mb-10 ">

@@ -8,14 +8,13 @@ const Section6 = () => {
       <div>
         <Link to="/home"><h1 className="text-white text-left text-xl text-bold"><span className="p">&#8358;</span>airaland</h1></Link>
             <p className="text-left text-gray-100 py-4">Nairaland is a Nigerian English-language internet forum. Founded by Nigerian entrepreneur Seun Osewa on March 8, 2005, it is targeted primarily at Nigerian domestic residents and is the 6th most visited website in Nigeria.</p>
-       
         <Link to="/createpage" className="bg-green-800 hover:bg-green-700 flex text-white font-bold py-2 px-4 w-32 rounded"> Write Story</Link>
       </div>
         <div>
             <div className="grid sm:grid-cols-1 md:grid-cols-3 gap-4 md:gap-7">
               <div className="flex flex-col text-white text-left py-5 md:mt-4">
                 <h1 className="text-xl sm:text-base md:text-base text-semibold">Quick Menu</h1>
-            <Link  className="py-1"  to="/home">
+            <Link  className="py-1"  to="/">
             Home
             </Link>
            

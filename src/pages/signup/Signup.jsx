@@ -23,7 +23,7 @@ return (
         Create your <span className='text-green-900'>&#8358;airaland</span> account
     </h2>
     <p className='text-sm'> Already have an account?
-    <Link to="/">Log in.</Link>
+    <Link to="/login" className='text-blue-600 font-bold px-1'>Log in</Link>
     
     </p>
     

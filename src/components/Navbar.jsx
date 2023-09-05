@@ -79,7 +79,7 @@ console.log(searchValue);
       {!token  && <Link to='/'> <p className='sm:text-black md:text-white'>Signin</p></Link> }
       {token && <Link onClick={()=>{
         signOut()
-      }} to='/'> <button className='sm:text-black md:text-white bg-red rounded-md'>Logout</button></Link>}
+      }} to='/login'> <button className='sm:text-black md:text-white bg-red rounded-md'>Logout</button></Link>}
 
 
       </div>

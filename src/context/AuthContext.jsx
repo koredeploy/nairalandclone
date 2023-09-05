@@ -30,7 +30,7 @@ export const AuthProvider = ({ children }) => {
         setToken(res.data.auth_token);
         console.log(res.data.auth_token);
         localStorage.setItem("token", JSON.stringify(res.data.auth_token));
-        navigate("/home");
+        navigate("/");
       }
     } catch (error) {
       toast.error(error)
@@ -115,7 +115,7 @@ export const AuthProvider = ({ children }) => {
       console.log(res);
       if (res.status === 201) {
         toast.success("Story Created successfully");
-        navigate("/home")
+        navigate("/")
       }
     } catch (error) {
       toast.error(error)
@@ -133,7 +133,7 @@ export const AuthProvider = ({ children }) => {
       if (res.status === 201) {
         console.log("registered successful");
         toast.success("registered successful");
-        navigate("/home");
+        navigate("/");
         loginUser({
           username: incoming.username,
           password: incoming.password,

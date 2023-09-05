@@ -1,14 +1,19 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import Rootlayout from "../layout/Rootlayout";
 import useFetch from "../hooks/useFetch";
 import AuthContext from "../context/AuthContext";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import redbar from "../assets/images/pseudo.png";
 import CreatedAt from "../components/CreatedAt";
 import Loading from "../components/utils/loading";
 
+
 const SearchPage = () => {
   const { token, searchValue } = useContext(AuthContext);
+  const navigate = useNavigate()
+  useEffect(()=>{
+    navigate("/login")
+  }, [])
   const { data, error, loading } = useFetch(
     "https://nairalandapi5.onrender.com/api/posts/",
     token

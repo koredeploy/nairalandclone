@@ -1,11 +1,13 @@
-import  { useContext, useState } from "react";
+import  { useContext, useEffect, useState } from "react";
 import "./CreatePage.css";
 // import { base64 } from "../../components/utils/base64";
 import AuthContext from "../../context/AuthContext";
 import Rootlayout from "../../layout/Rootlayout";
 // import Navbar from "../../components/Navbar";
+import {useNavigate} from 'react-router-dom'
 
 const CreatePage = () => {
+  const navigate = useNavigate()
   const [ptags, setPtags] = useState([]);
   const seperator = " "
   const tags = ptags.join(seperator)
@@ -23,11 +25,17 @@ const CreatePage = () => {
     "LifeStyle",
     
   ];
-  const { createStory } = useContext(AuthContext)
+  const { createStory, token } = useContext(AuthContext)
   const [title, setTitle] = useState("");
   const [image, setImage] = useState()
   const [story, setStory] = useState("")
 
+
+  useEffect(()=>{
+    if(!token){
+      navigate('/login')
+    }
+  }, [])
 
 
     let formData = new FormData;
@@ -52,6 +60,7 @@ const CreatePage = () => {
       setPtags((prev) => [...prev, value]);
     }
   };
+
 
   return (
     <Rootlayout>

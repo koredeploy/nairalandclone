@@ -11,6 +11,7 @@ import TrendingPage from './pages/TrendingPage/TrendingPage';
 import Allpost from './pages/allpost/Allpost';
 import EditStory from './pages/EditStory';
 import SearchPage from './pages/SearchPage';
+import PrivateRoute from './components/utils/PrivateRoute';
 
 function App() {
   return (
@@ -18,15 +19,16 @@ function App() {
       <AuthProvider>
           <Toaster/>
         <Routes>
-          < Route path='home' element={<LandingPage />} />
+          < Route path='/' element={<LandingPage />} />
           < Route path='signup' element={<Signup />} />
-          < Route path='/' element={<Login />} />
-          < Route path= 'createpage' element={<CreatePage/>}/>
-          < Route path= 'trending' element={<TrendingPage/>}/>
-          < Route path= 'allpost' element={<Allpost/>}/>
-          < Route path= 'edit/:id' element={<EditStory/>}/>
-          < Route path= 'searchpage' element={<SearchPage/>}/>
-          < Route path= 'storydetail/:id' element={<StoryDetail/>}/>
+          < Route path='/login' element={<Login />} />
+          < Route path='createpage' element={<CreatePage/>}/>
+          <Route element={<PrivateRoute/>} />
+          < Route path='trending' element={<TrendingPage/>}/>
+          < Route path='allpost' element={<Allpost/>}/>
+          < Route path='edit/:id' element={<EditStory/>}/>
+          < Route path='searchpage' element={<SearchPage/>}/>
+          < Route path='storydetail/:id' element={<StoryDetail/>}/>
           
         </Routes>
       </AuthProvider>
